@@ -45,6 +45,17 @@ Features
    .Fast account searching
    .Streamlined for those who are more comfortable using the keyboard only
 
+Building
+--------
+Run this once:
+
+	mvn install:install-file -Dfile=./libs/dropbox-android-sdk-1.5.3.jar -DgroupId=com.dropbox -DartifactId=dropbox-android-sdk -Dversion=1.5.3 -Dpackaging=jar
+
+Run this to build:
+
+	mvn clean install android:deploy
+
+
 History
 -------
    v1.14 28-Oct-2012
