@@ -20,10 +20,6 @@
  */
 package com.u17od.upm;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -35,12 +31,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.actionbarsherlock.app.SherlockActivity;
 import com.u17od.upm.crypto.InvalidPasswordException;
 import com.u17od.upm.database.PasswordDatabase;
 import com.u17od.upm.database.ProblemReadingDatabaseFile;
 
-public class CreateNewDatabase extends Activity implements OnClickListener {
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
+public class CreateNewDatabase extends SherlockActivity implements OnClickListener {
 
     private static final int GENERIC_ERROR_DIALOG = 1;
 

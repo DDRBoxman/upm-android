@@ -20,24 +20,23 @@
  */
 package com.u17od.upm;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.u17od.upm.database.AccountInformation;
 import com.u17od.upm.database.PasswordDatabase;
 
-public class ViewAccountDetails extends Activity {
+public class ViewAccountDetails extends SherlockActivity {
 
     public static AccountInformation account;
 
@@ -74,7 +73,7 @@ public class ViewAccountDetails extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = getSupportMenuInflater();
         inflater.inflate(R.menu.account, menu);
         return true;
     }

@@ -1,22 +1,21 @@
 package com.u17od.upm;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.u17od.upm.crypto.InvalidPasswordException;
+import com.u17od.upm.database.PasswordDatabase;
+import com.u17od.upm.database.ProblemReadingDatabaseFile;
+
+import javax.crypto.SecretKey;
 import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Date;
 
-import javax.crypto.SecretKey;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
-
-import com.u17od.upm.crypto.InvalidPasswordException;
-import com.u17od.upm.database.PasswordDatabase;
-import com.u17od.upm.database.ProblemReadingDatabaseFile;
-
-
-public abstract class SyncDatabaseActivity extends Activity {
+public abstract class SyncDatabaseActivity extends SherlockActivity {
 
     private static final int ENTER_PW_REQUEST_CODE = 222;
     public static final int SYNC_DB_REQUEST_CODE = 226;

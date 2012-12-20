@@ -20,55 +20,51 @@
  */
 package com.u17od.upm;
 
-import android.app.ListActivity;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.text.ClipboardManager;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
-
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.internal.widget.IcsAdapterView;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.u17od.upm.database.AccountInformation;
 import com.u17od.upm.database.PasswordDatabase;
 
-public class AccountsList extends ListActivity {
+public class AccountsList extends SherlockListActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = getSupportMenuInflater();
         inflater.inflate(R.menu.account_context_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+        IcsAdapterView.AdapterContextMenuInfo info = (IcsAdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
         switch (item.getItemId()) {
-        case R.id.edit_account:
-            editAccount(getAccount(info.targetView));
-            return true;
-        case R.id.copy_username:
-            setClipboardText(getUsername(getAccount(info.targetView)));
-            return true;
-        case R.id.copy_password:
-            setClipboardText(getPassword(getAccount(info.targetView)));
-            return true;
-        case R.id.launch_url:
-            launchURL(getURL(getAccount(info.targetView)));
-            return true;
+            case R.id.edit_account:
+                editAccount(getAccount(info.targetView));
+                return true;
+            case R.id.copy_username:
+                setClipboardText(getUsername(getAccount(info.targetView)));
+                return true;
+            case R.id.copy_password:
+                setClipboardText(getPassword(getAccount(info.targetView)));
+                return true;
+            case R.id.launch_url:
+                launchURL(getURL(getAccount(info.targetView)));
+                return true;
         }
-        return super.onContextItemSelected(item);
+        return super.onMenuItemSelected(featureId, item);
     }
 
     private void setClipboardText(String text) {
@@ -100,8 +96,8 @@ public class AccountsList extends ListActivity {
             if (uri.getScheme() == null) {
                 uri = Uri.parse("http://" + uriString);
             }
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri); 
-            startActivity(intent); 
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         }
     }
 

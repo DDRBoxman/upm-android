@@ -1,14 +1,6 @@
 package com.u17od.upm;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.android.AndroidAuthSession;
 import com.dropbox.client2.exception.DropboxException;
@@ -26,7 +18,14 @@ import com.dropbox.client2.session.AccessTokenPair;
 import com.dropbox.client2.session.AppKeyPair;
 import com.u17od.upm.database.PasswordDatabase;
 
-public class SelectDatabaseFromDropboxActivity extends ListActivity {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class SelectDatabaseFromDropboxActivity extends SherlockListActivity {
 
     public static final String EXTRA_DB_FILENAMES = "EXTRA_DB_FILENAMES";
 

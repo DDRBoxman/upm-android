@@ -20,12 +20,6 @@
  */
 package com.u17od.upm;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -37,12 +31,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-
+import com.actionbarsherlock.app.SherlockActivity;
 import com.u17od.upm.database.PasswordDatabase;
 import com.u17od.upm.transport.HTTPTransport;
 import com.u17od.upm.transport.TransportException;
 
-public class DownloadRemoteDatabase extends Activity implements OnClickListener {
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
+public class DownloadRemoteDatabase extends SherlockActivity implements OnClickListener {
 
     private static final int ENTER_PW_REQUEST_CODE = 111;
 

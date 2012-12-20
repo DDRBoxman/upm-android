@@ -20,7 +20,6 @@
  */
 package com.u17od.upm;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -33,11 +32,11 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.actionbarsherlock.app.SherlockActivity;
 import com.u17od.upm.database.AccountInformation;
 import com.u17od.upm.database.PasswordDatabase;
 
-public class AddEditAccount extends Activity implements OnClickListener {
+public class AddEditAccount extends SherlockActivity implements OnClickListener {
 
     private static final int GENERIC_ERROR_DIALOG = 1;
 

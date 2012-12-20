@@ -20,11 +20,6 @@
  */
 package com.u17od.upm;
 
-import java.io.File;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,17 +31,21 @@ import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.actionbarsherlock.app.SherlockActivity;
 import com.u17od.upm.crypto.InvalidPasswordException;
 import com.u17od.upm.database.PasswordDatabase;
 import com.u17od.upm.database.ProblemReadingDatabaseFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 /**
  * This Activity is responsible for prompting the user to enter their master
  * password and then decrypting the database. If the correct password is entered
  * then the AccountList Activity is loaded.
  */
-public class EnterMasterPassword extends Activity implements OnClickListener {
+public class EnterMasterPassword extends SherlockActivity implements OnClickListener {
 
     public static PasswordDatabase decryptedPasswordDatabase;
     public static File databaseFileToDecrypt;

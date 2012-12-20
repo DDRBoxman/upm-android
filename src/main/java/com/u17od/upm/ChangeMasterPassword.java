@@ -20,10 +20,6 @@
  */
 package com.u17od.upm;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -33,12 +29,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.actionbarsherlock.app.SherlockActivity;
 import com.u17od.upm.crypto.InvalidPasswordException;
 import com.u17od.upm.database.PasswordDatabase;
 import com.u17od.upm.database.ProblemReadingDatabaseFile;
 
-public class ChangeMasterPassword extends Activity implements OnClickListener {
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
+public class ChangeMasterPassword extends SherlockActivity implements OnClickListener {
 
     private EditText existingPassword;
     private EditText newPassword;

@@ -20,9 +20,6 @@
  */
 package com.u17od.upm;
 
-import java.io.File;
-
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
@@ -33,8 +30,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import com.actionbarsherlock.app.SherlockActivity;
 
-public class AppEntryActivity extends Activity {
+import java.io.File;
+
+public class AppEntryActivity extends SherlockActivity {
 
     private static final int NEW_DATABASE_DIALOG = 1;
 
